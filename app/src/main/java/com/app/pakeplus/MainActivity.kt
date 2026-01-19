@@ -12,13 +12,14 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
-import android.webkit.WebChromeClient
-import android.webkit.SslErrorHandler
-import android.net.http.SslError
-import android.webkit.WebResourceError
-import android.webkit.WebResourceRequest
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.view.WindowManager
+import com.tencent.smtt.sdk.WebChromeClient
+import com.tencent.smtt.export.external.interfaces.WebResourceError
+import com.tencent.smtt.export.external.interfaces.WebResourceRequest
+import com.tencent.smtt.sdk.WebView
+import com.tencent.smtt.sdk.WebViewClient
+import com.tencent.smtt.export.external.interfaces.SslError
+import com.tencent.smtt.export.external.interfaces.SslErrorHandler
 import android.widget.ProgressBar
 import androidx.activity.enableEdgeToEdge
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -109,7 +110,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         webView.settings.apply {
-            mixedContentMode = android.webkit.WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+            // mixedContentMode = android.webkit.WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
             javaScriptEnabled = true
             domStorageEnabled = true
             allowFileAccess = true

@@ -41,6 +41,11 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    ndk {
+        // X5 is compatible with ARM only
+        abiFilters.add("armeabi-v7a")
+        abiFilters.add("arm64-v8a")
+    }
     buildFeatures {
         viewBinding = true
     }
@@ -59,4 +64,5 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.androidx.swiperefreshlayout)
+    implementation(libs.tencent.tbs)
 }
