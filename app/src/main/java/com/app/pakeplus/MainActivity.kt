@@ -17,7 +17,9 @@ import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.ProgressBar
 import androidx.activity.enableEdgeToEdge
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 // import android.view.Menu
 // import android.view.WindowInsets
 // import com.google.android.material.snackbar.Snackbar
@@ -44,6 +46,8 @@ class MainActivity : AppCompatActivity() {
 //    private lateinit var binding: ActivityMainBinding
 
     private lateinit var webView: WebView
+    private lateinit var swipeRefresh: SwipeRefreshLayout
+    private lateinit var progressBar: ProgressBar
     private lateinit var gestureDetector: GestureDetectorCompat
 
     @SuppressLint("SetJavaScriptEnabled", "ClickableViewAccessibility")
@@ -95,6 +99,13 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         webView = findViewById<WebView>(R.id.webview)
+        swipeRefresh = findViewById(R.id.swipe_refresh)
+        progressBar = findViewById(R.id.progressBar)
+
+        swipeRefresh.setOnRefreshListener {
+            webView.reload()
+        }
+
         webView.settings.apply {
             mixedContentMode = android.webkit.WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
             javaScriptEnabled = true
@@ -315,10 +326,13 @@ class MainActivity : AppCompatActivity() {
 
         override fun onPageFinished(view: WebView?, url: String?) {
             super.onPageFinished(view, url)
+            swipeRefresh.isRefreshing = false
+            progressBar.visibility = View.GONE
         }
 
         override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
             super.onPageStarted(view, url, favicon)
+            progressBar.visibility = View.VISIBLE
             if (debug) {
                 // vConsole
                 val vConsole = assets.open("vConsole.js").bufferedReader().use { it.readText() }
