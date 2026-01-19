@@ -143,8 +143,8 @@
     "android": {
         "name": "哎哟影视",
         "showName": "哎哟影视",
-        "version": "1.1.0",
-        "webUrl": "https://ayys.fun/",
+        "version": "1.1.1",
+        "webUrl": "https://x.ayys.fun/index.php?x=333",
         "id": "com.ayys.android",
         "icon": "./app-icon.png",
         "input": "./app-icon.png",
