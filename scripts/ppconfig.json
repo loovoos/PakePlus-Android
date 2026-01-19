@@ -155,7 +155,7 @@
         "desc": "在线看电影",
         "pubBody": "在线看电影",
         "isHtml": false,
-        "debug": true,
+        "debug": false,
         "safeArea": "all"
     },
     "desktop": {
