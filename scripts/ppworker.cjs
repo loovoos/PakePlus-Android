@@ -13,7 +13,7 @@ function generateAdaptiveIcons(input, output) {
     }
 
     // icon背景颜色,可设置为none透明
-    const bgColor = '#FFFFFF'
+    const bgColor = 'none'
     // 一般0.75, 前景最大占比（安全区）
     const foregroundScale = 0.68
 
@@ -39,7 +39,7 @@ function generateAdaptiveIcons(input, output) {
         // 前景：缩放到安全区域，居中，四周自动留边
         execSync(
             `convert "${input}" -resize ${fgSize}x${fgSize} ` +
-                `-gravity center -background none -extent ${size}x${size} ${foregroundFile}`
+            `-gravity center -background none -extent ${size}x${size} ${foregroundFile}`
         )
     }
 
@@ -363,13 +363,13 @@ const main = async () => {
     console.log('✅ Worker Success')
 }
 
-// run
-;(async () => {
-    try {
-        console.log('🚀 worker start')
-        await main()
-        console.log('🚀 worker end')
-    } catch (error) {
-        console.error('❌ Worker Error:', error)
-    }
-})()
+    // run
+    ; (async () => {
+        try {
+            console.log('🚀 worker start')
+            await main()
+            console.log('🚀 worker end')
+        } catch (error) {
+            console.error('❌ Worker Error:', error)
+        }
+    })()
