@@ -12,8 +12,8 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
-import android.view.WindowManager
 import com.tencent.smtt.sdk.WebChromeClient
+import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient
 import com.tencent.smtt.export.external.interfaces.WebResourceError
 import com.tencent.smtt.export.external.interfaces.WebResourceRequest
 import com.tencent.smtt.sdk.WebView
@@ -115,9 +115,9 @@ class MainActivity : AppCompatActivity() {
             domStorageEnabled = true
             allowFileAccess = true
             useWideViewPort = true
-            allowFileAccessFromFileURLs = true
+            // allowFileAccessFromFileURLs = true
             allowContentAccess = true
-            allowUniversalAccessFromFileURLs = true
+            // allowUniversalAccessFromFileURLs = true
             loadWithOverviewMode = true
             mediaPlaybackRequiresUserGesture = false
             setSupportMultipleWindows(true)
@@ -360,7 +360,7 @@ class MainActivity : AppCompatActivity() {
             println("wev view url:$url")
         }
 
-        override fun onShowCustomView(view: View?, callback: CustomViewCallback?) {
+        override fun onShowCustomView(view: View?, callback: IX5WebChromeClient.CustomViewCallback?) {
             super.onShowCustomView(view, callback)
         }
 
