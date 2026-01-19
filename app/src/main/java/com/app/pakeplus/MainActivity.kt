@@ -13,6 +13,8 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
 import android.webkit.WebChromeClient
+import android.webkit.SslErrorHandler
+import android.net.http.SslError
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
@@ -322,6 +324,11 @@ class MainActivity : AppCompatActivity() {
         ) {
             super.onReceivedError(view, request, error)
             println("webView onReceivedError: ${error?.description}")
+        }
+
+        @SuppressLint("WebViewClientOnReceivedSslError")
+        override fun onReceivedSslError(view: WebView?, handler: SslErrorHandler?, error: SslError?) {
+            handler?.proceed()
         }
 
         override fun onPageFinished(view: WebView?, url: String?) {
