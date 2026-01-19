@@ -118,7 +118,7 @@
             "tabBarItem": []
         },
         "webview": {
-            "userAgent": "",
+            "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
             "javaScriptEnabled": true,
             "domStorageEnabled": true,
             "allowFileAccess": true,
@@ -143,7 +143,7 @@
     "android": {
         "name": "哎哟影视",
         "showName": "哎哟影视",
-        "version": "1.0.3",
+        "version": "1.0.6",
         "webUrl": "https://ayys.fun/",
         "id": "com.ayys.android",
         "icon": "./app-icon.png",
