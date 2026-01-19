@@ -96,6 +96,7 @@ class MainActivity : AppCompatActivity() {
         }
         webView = findViewById<WebView>(R.id.webview)
         webView.settings.apply {
+            mixedContentMode = android.webkit.WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
             javaScriptEnabled = true
             domStorageEnabled = true
             allowFileAccess = true
