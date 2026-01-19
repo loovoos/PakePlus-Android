@@ -14,6 +14,11 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            // X5 is compatible with ARM only
+            abiFilters.add("armeabi-v7a")
+            abiFilters.add("arm64-v8a")
+        }
     }
 
     buildTypes {
@@ -41,11 +46,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    ndk {
-        // X5 is compatible with ARM only
-        abiFilters.add("armeabi-v7a")
-        abiFilters.add("arm64-v8a")
-    }
+
     buildFeatures {
         viewBinding = true
     }
